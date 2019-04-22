@@ -1,0 +1,17 @@
+{
+  "name": "useGraphQL",
+  "version": "1.0.0",
+  "description": "A presentation on using React hooks and Apollo.",
+  "main": "index.js",
+  "author": "Stefan Age, Novo Labs",
+  "license": "MIT",
+  "dependencies": {
+    "mdx-deck": "^2.3.2",
+    "styled-components": "^4.2.0"
+  },
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx"
+  },
+  "devDependencies": {}
+}

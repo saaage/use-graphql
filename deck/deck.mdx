@@ -1,0 +1,77 @@
+import { Head, Notes, Appear, Image } from 'mdx-deck'
+import { Split } from 'mdx-deck/layouts'
+
+# useGraphQL
+
+### Using hooks and Apollo to write cleaner and simpler React components.
+
+by Stefan Age  
+Front End Developer, Novo Labs  
+
+<Notes>We use react and graphql extensively to build our internal tooling.</Notes>
+
+@stefan_age
+<img src="./assets/twitter.png" height="48" width="48" /> 
+
+---
+
+# <em>What are Hooks?</em>
+🎣
+
+---
+
+# Hooks are functions 
+<ul>
+  <Appear>
+    <li>const [myState, setMyState] = <b style={{ color: 'blue' }}>useState</b>(true) </li>
+    <li><b style={{ color: 'blue' }}>useEffect</b>(() => fetchSomeData()) </li>
+  </Appear>
+</ul>
+<Notes>Released by the React team in version 16.8. Provides components the ability to use state and other React features without the need to write a class component. Start with the word use and only work in functional components. The motivation for hooks came primarily from the demand for better methods of sharing stateful logic between components.</Notes>
+
+---
+
+# Pre-hooks solutions
+
+<Notes>Currently there are a few ways of sharing stateful logic between components.</Notes>
+
+---
+
+# HOC
+<Notes>HOCs are functions that take components as arguments and return a new, enhanced component. Popular libraries
+supporting this pattern include Recompose (now deprecated with the release of hooks), as well as Apollo which we will go into more depth on.</Notes>
+
+---
+## Render props
+
+<Notes>A pattern enabling the sharing of logic between components by using a prop whose value is function (typically
+render (react-router), or children, or directly inside of opening and closing tags of a component).</Notes>
+
+---
+
+<Split>
+<Image src="./assets/wraphell.png" size="contain" />
+
+</Split>
+
+<Notes>Opening React Dev-Tools to inspect your component now reveals something similar to this. Top level components
+that wrap other components endlessly before rendering your component.</Notes> 
+
+---
+
+# <em>Why functional components?</em>
+<ul>
+  <Appear>
+    <li>no need to worry about JavaScript's <b style={{ color: 'blue' }}>this</b></li>
+    <li>no need to bind event handlers</li>
+    <li>optimization by the React team</li>
+    <br />
+    <li><b>note</b>: there are no plans to remove classes from React</li>
+  </Appear>
+</ul>
+
+<Notes>React team testing methods such as ahead of time compiling, component folding to increase performance and class
+components can encourage unintentional patterns making these optimizations fall back to a slower path. However, there
+are no plans to remove classes from React.</Notes>
+
+---
