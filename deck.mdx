@@ -1,5 +1,8 @@
 import { Head, Notes, Appear, Image } from 'mdx-deck'
 import { Split } from 'mdx-deck/layouts'
+import HOC from './components/HOC'
+import RenderProps from './components/RenderProps'
+export { default as theme } from './theme'
 
 # useGraphQL
 
@@ -22,27 +25,32 @@ Front End Developer, Novo Labs
 
 # Hooks are functions 
 <ul>
+  <li><span style={{ color: 'silver' }}>const [myState, setMyState]</span> = <b style={{ color: 'blue' }}>useState</b>(<span style={{ color: 'silver' }}>true</span>) </li>
+  <li><b style={{ color: 'blue' }}>useEffect</b>(<span style={{ color: 'silver' }}>() => fetchSomeData()</span>) </li>
+</ul>
+
+<Notes>Released by the React team in version 16.8, hooks provide components the ability to use state and other React features without the need to write a class.</Notes>
+
+---
+
+# Why hooks?
+<ul>
   <Appear>
-    <li>const [myState, setMyState] = <b style={{ color: 'blue' }}>useState</b>(true) </li>
-    <li><b style={{ color: 'blue' }}>useEffect</b>(() => fetchSomeData()) </li>
+    <li>Better way to share stateful logic between components</li>
+    <li>Get rid of confusing class components</li>
   </Appear>
 </ul>
-<Notes>Released by the React team in version 16.8. Provides components the ability to use state and other React features without the need to write a class component. Start with the word use and only work in functional components. The motivation for hooks came primarily from the demand for better methods of sharing stateful logic between components.</Notes>
 
 ---
 
-# Pre-hooks solutions
+<HOC />
 
-<Notes>Currently there are a few ways of sharing stateful logic between components.</Notes>
-
----
-
-# HOC
 <Notes>HOCs are functions that take components as arguments and return a new, enhanced component. Popular libraries
 supporting this pattern include Recompose (now deprecated with the release of hooks), as well as Apollo which we will go into more depth on.</Notes>
 
 ---
-## Render props
+
+<RenderProps />
 
 <Notes>A pattern enabling the sharing of logic between components by using a prop whose value is function (typically
 render (react-router), or children, or directly inside of opening and closing tags of a component).</Notes>
@@ -50,8 +58,9 @@ render (react-router), or children, or directly inside of opening and closing ta
 ---
 
 <Split>
-<Image src="./assets/wraphell.png" size="contain" />
+<Image src="./assets/wraphell.png" size="auto" />
 
+<h2 style={{ marginTop: 512 }}>🔥 Wrapper Hell</h2>
 </Split>
 
 <Notes>Opening React Dev-Tools to inspect your component now reveals something similar to this. Top level components
@@ -59,11 +68,26 @@ that wrap other components endlessly before rendering your component.</Notes>
 
 ---
 
+# Problems hooks solve
+<ul>
+  <Appear>
+    <li>wrapper hell</li>
+    <li>huge components</li>
+    <li>confusing classes</li>
+  </Appear>
+</ul>
+
+<Notes>Wrapper hell is the result of continuously wrapping components with other components to enhance functionality.
+Huge components are often written to avoid wrapper hell by placing large amounts of logic in one component rather than
+splitting that logic up among smaller components. Classes require knowledge of this, binding methods to class instances.</Notes> 
+
+---
+
 # <em>Why functional components?</em>
 <ul>
   <Appear>
     <li>no need to worry about JavaScript's <b style={{ color: 'blue' }}>this</b></li>
-    <li>no need to bind event handlers</li>
+    <li>no need to bind event handlers to class instance</li>
     <li>optimization by the React team</li>
     <br />
     <li><b>note</b>: there are no plans to remove classes from React</li>
