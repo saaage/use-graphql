@@ -29,17 +29,17 @@ Front End Developer, Novo Labs
   <li><b style={{ color: 'blue' }}>useEffect</b>(<span style={{ color: 'silver' }}>() => fetchSomeData()</span>) </li>
 </ul>
 
-<Notes>Released by the React team in version 16.8, hooks provide components the ability to use state and other React features without the need to write a class.</Notes>
+<Notes>Released by the React team in version 16.8, hooks provide components the ability to use state and other core React features without the need to write classes. <br /> motivate...</Notes>
 
 ---
 
 # Why hooks?
 <ul>
-  <Appear>
-    <li>Better way to share stateful logic between components</li>
-    <li>Get rid of confusing class components</li>
-  </Appear>
+  <li>Remove confusing class components</li>
+  <li>Provide a better primitive for sharing stateful logic between components</li>
 </ul>
+
+<Notes>Hooks allow you to reuse stateful logic without changing your component hierarchy.</Notes>
 
 ---
 
@@ -52,8 +52,7 @@ supporting this pattern include Recompose (now deprecated with the release of ho
 
 <RenderProps />
 
-<Notes>A pattern enabling the sharing of logic between components by using a prop whose value is function (typically
-render (react-router), or children, or directly inside of opening and closing tags of a component).</Notes>
+<Notes>A render prop is a function prop that a component uses to know what to render.</Notes>
 
 ---
 
@@ -68,34 +67,41 @@ that wrap other components endlessly before rendering your component.</Notes>
 
 ---
 
-# Problems hooks solve
-<ul>
-  <Appear>
-    <li>wrapper hell</li>
-    <li>huge components</li>
-    <li>confusing classes</li>
-  </Appear>
-</ul>
-
-<Notes>Wrapper hell is the result of continuously wrapping components with other components to enhance functionality.
-Huge components are often written to avoid wrapper hell by placing large amounts of logic in one component rather than
-splitting that logic up among smaller components. Classes require knowledge of this, binding methods to class instances.</Notes> 
+# How can hooks help solve these problems?
 
 ---
 
-# <em>Why functional components?</em>
+# Additional notes on hooks
+
 <ul>
-  <Appear>
-    <li>no need to worry about JavaScript's <b style={{ color: 'blue' }}>this</b></li>
-    <li>no need to bind event handlers to class instance</li>
-    <li>optimization by the React team</li>
-    <br />
-    <li><b>note</b>: there are no plans to remove classes from React</li>
-  </Appear>
+  <li>Should be called unconditionally</li>
+  <li>Should be prefixed with <b style={{ fontFamily: 'Dank Mono', color: 'purple' }}>use</b></li> 
+  <li>Future optimizations on roadmap by the React team</li>
 </ul>
 
-<Notes>React team testing methods such as ahead of time compiling, component folding to increase performance and class
-components can encourage unintentional patterns making these optimizations fall back to a slower path. However, there
-are no plans to remove classes from React.</Notes>
+---
+
+# Additional resources
+
+<ul>
+  <li><a href="https://reactjs.org/docs/hooks-intro.html" style={{ color: 'purple' }}>Introduction To Hooks (React docs)</a></li>
+  <li><a href="https://reactjs.org/docs/hooks-faq.html#how-do-lifecycle-methods-correspond-to-hooks" style={{ color: 'purple' }}>Lifecycle methods
+  =>hooks</a></li>
+  <li><a href="https://overreacted.io/a-complete-guide-to-useeffect" style={{ color: 'purple' }}>Complete Guide to useEffect</a></li>
+</ul>
 
 ---
+
+# useGraphQL
+
+### Using hooks and Apollo to write cleaner and simpler React components.
+
+by Stefan Age  
+Front End Developer, Novo Labs  
+
+<Notes>We use react and graphql extensively to build our internal tooling.</Notes>
+
+@stefan_age
+<img src="./assets/twitter.png" height="48" width="48" /> 
+
+
